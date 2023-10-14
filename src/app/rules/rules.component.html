@@ -1,0 +1,14 @@
+<button title="rules" type="button" (click)="openDialog()">Rules</button>
+
+<ng-container *ngIf="isOpen">
+    <div class="dialog">
+        <div class="dialog-title">
+            <h2>RULES</h2>
+            <img src="./assets/" alt="close.svg">
+        </div>
+        <div class="dialog-content">
+            
+        </div>
+    </div>
+    <div class="dialog-overlay"></div>
+</ng-container>

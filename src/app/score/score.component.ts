@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-score',
@@ -16,11 +16,12 @@ export class ScoreComponent implements OnInit {
   ngOnInit(): void {
   }
   
+  @Input()
   public set counter(value: number) {
     this._counter = value;
   }
   
-  public get value(): number {
+  public get counter(): number {
     return this._counter;
   }
   

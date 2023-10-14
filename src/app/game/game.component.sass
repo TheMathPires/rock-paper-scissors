@@ -1,0 +1,40 @@
+:host
+    padding: 2rem 1rem
+
+    .game
+        display: flex
+        justify-content: center
+        flex-wrap: wrap
+        margin: 4rem auto
+        position: relative
+        max-width: 57.5rem
+
+        app-button
+            text-align: center
+            z-index: 1
+    
+        app-button:first-child,
+        app-button:nth-child(2)
+            flex-grow: 1
+        
+        app-button:nth-child(3)
+            flex-basis: 100%
+            margin-top: 1.5rem
+
+    .connector
+        position: absolute
+        top: 6.25rem
+        border-top: .9375rem solid rgba(0, 0, 0, .4)
+        width: 18.4375rem
+
+        .arrow-down
+            position: absolute
+            margin: auto
+            top: -4.375rem
+            left: 0
+            right: 0
+            width: 13.4375rem
+            height: 13.4375rem
+            transform: rotate(45deg)
+            border-right: .9375rem solid rgba(0, 0, 0, .4)
+            border-bottom: .9375rem solid rgba(0, 0, 0, .4)
