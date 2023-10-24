@@ -20,5 +20,9 @@ export class RulesComponent {
 	openDialog(): void {
 		this._isOpen = true;
 	}
-	
+
+	closeDialog(): void {
+		this._isOpen = false;
+	}
+
 }

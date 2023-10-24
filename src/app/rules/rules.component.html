@@ -4,11 +4,11 @@
     <div class="dialog">
         <div class="dialog-title">
             <h2>RULES</h2>
-            <img src="./assets/" alt="close.svg">
+            <img src="./assets/close.svg" alt="close.svg" (click)="closeDialog()">
         </div>
         <div class="dialog-content">
-            
+            <span>DIALOG CONTENT</span>
         </div>
     </div>
-    <div class="dialog-overlay"></div>
+    <div class="dialog-overlay" (click)="closeDialog()"></div>
 </ng-container>

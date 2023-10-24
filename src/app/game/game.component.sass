@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@700&display=swap')
+    
 :host
     padding: 2rem 1rem
 
@@ -38,3 +40,36 @@
             transform: rotate(45deg)
             border-right: .9375rem solid rgba(0, 0, 0, .4)
             border-bottom: .9375rem solid rgba(0, 0, 0, .4)
+
+    .choose-screen
+        display: flex
+        justify-content: center
+        gap: 11rem
+        margin-top: 4.5rem
+
+        .your-choise, .oponent-choise
+            display: flex
+            flex-direction: column
+
+            app-button
+                pointer-events: none
+
+            .oponent-space
+                width: 13.03944rem
+                height: 13.03944rem
+                background:  rgba(0, 0, 0, 0.1)
+                border-radius: 50%
+
+            span
+                color: #FFF
+                font-family: 'Barlow Semi Condensed', sans-serif
+                text-shadow: 0 .1875rem .1875rem rgba(0, 0, 0, 0.20)
+                font-weight: 700
+                text-transform: uppercase
+                letter-spacing: 0.1875rem
+                font-size: 1.5rem
+                text-align: center
+                margin-bottom: 3.94rem
+
+
+

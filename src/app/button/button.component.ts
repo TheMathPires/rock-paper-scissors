@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { GameSymbol } from '../model/game-symbol.type';
+import { GameService } from '../services/game.service';
 
 @Component({
   selector: 'app-button',
@@ -10,7 +11,7 @@ export class ButtonComponent implements OnInit {
 
   private _symbol!: GameSymbol;
 
-  constructor() { }
+  constructor(private gameService: GameService) { }
 
   ngOnInit(): void {
   }
@@ -22,5 +23,10 @@ export class ButtonComponent implements OnInit {
     
   public get symbol(): GameSymbol {
     return this._symbol;
+  }
+
+  @HostListener('click')
+  onClick(): void {
+    this.gameService.pickedSymbol = this._symbol;
   }
 }

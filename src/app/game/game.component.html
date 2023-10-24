@@ -1,9 +1,27 @@
-<div class="game">
-    <app-button [symbol]="'paper'"></app-button>
-    <app-button [symbol]="'scissors'"></app-button>
-    <app-button [symbol]="'rock'"></app-button>
-
-    <div class="connector">
-        <div class="arrow-down"></div>
+<ng-container *ngIf="isChoosing; else chooseScreen">
+    <div class="game">
+        <app-button [symbol]="'paper'"></app-button>
+        <app-button [symbol]="'scissors'"></app-button>
+        <app-button [symbol]="'rock'"></app-button>
+    
+        <div class="connector">
+            <div class="arrow-down"></div>
+        </div>
     </div>
-</div>
+</ng-container>
+<ng-template #chooseScreen>
+    <div class="choose-screen">
+        <div class="your-choise">
+            <span>You picked</span>
+            <app-button [symbol]="choosedSymbol"></app-button>
+        </div>
+        <div class="oponent-choise">
+            <span>The house picked</span>
+            <div class="oponent-space">
+                <ng-container *ngIf="oponentSymbol">
+                    <app-button [symbol]="oponentSymbol"></app-button>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</ng-template>
