@@ -2,9 +2,7 @@ import { Injectable } from "@angular/core";
 import { GameSymbol } from "../model/game-symbol.type";
 import { Observable, Subject } from "rxjs";
 
-@Injectable({
-    providedIn: 'root'
-})
+@Injectable()
 export class GameService {
 
     private _pickedSymbol!: GameSymbol;
