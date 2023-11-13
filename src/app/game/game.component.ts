@@ -16,50 +16,70 @@ const GAME_SCORE: GameScore[] = [
 })
 export class GameComponent implements OnInit {
 
-	private _isChoosing!: boolean;
+	private _gamePhase!: number;
 	private _choosedSymbol!: GameSymbol;
-	private _oponentSymbol!: GameSymbol | undefined;
+	private _opponentSymbol!: GameSymbol | undefined;
+	private _opponentWin!: boolean;
+	private _result!: 'win' | 'lose';
 
 	constructor(private gameService: GameService) {
-		this._isChoosing = true;
+		this._gamePhase = 0;
 	}
 
-	get isChoosing(): boolean {
-		return this._isChoosing;
+	get gamePhase(): number {
+		return this._gamePhase;
 	}
 
-	get oponentSymbol(): GameSymbol | undefined {
-		return this._oponentSymbol;
+	get opponentSymbol(): GameSymbol | undefined {
+		return this._opponentSymbol;
 	}
 
 	get choosedSymbol(): GameSymbol {
 		return this._choosedSymbol;
 	}
 
+	get opoonentWin(): boolean {
+		return this._opponentWin;
+	}
+
+	get result(): 'win' | 'lose' {
+		return this._result;
+	}
+
 	ngOnInit(): void {
 		this.gameService.onChosingAction.subscribe((symbol: GameSymbol) => {
 			this._choosedSymbol = symbol;
-			this._isChoosing = false;
+			this._gamePhase = 1;
 			this.setOponentSymbol(symbol);
 		});
+	}
+
+	restartGame(): void {
+		this._gamePhase = 0;
 	}
 
 	private setOponentSymbol(oponentSymbol: GameSymbol): void {
 		const symbols = (["rock", "paper", "scissors"] as GameSymbol[]);
 		
 		setTimeout(() => {
-			this._oponentSymbol = symbols.find((s) => s != oponentSymbol);
+			this._opponentSymbol = symbols.find((s) => s != oponentSymbol);
 			this.checkGameResult();
-		}, 3000);
+		}, 2000);
 	}
 
 	private checkGameResult(): void {
-		const oponentSymbol = this.getSymbolFromPlayer(this._oponentSymbol);
+		const oponentSymbol = this.getSymbolFromPlayer(this._opponentSymbol);
 		const choosedSymbol = this.getSymbolFromPlayer(this._choosedSymbol);
 
 		if (oponentSymbol?.beats === choosedSymbol?.symbol) {
-			
+			this._opponentWin = true;
+			this._result = 'lose';
+		} else {
+			this._opponentWin = false;
+			this._result = 'win';
 		}
+
+		this._gamePhase = 2;
 	}
 
 	private getSymbolFromPlayer(player: GameSymbol | undefined): GameScore  | undefined {

@@ -69,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "rock-paper-scissors:build:production"
+              "buildTarget": "rock-paper-scissors:build:production"
             },
             "development": {
-              "browserTarget": "rock-paper-scissors:build:development"
+              "buildTarget": "rock-paper-scissors:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +80,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "rock-paper-scissors:build"
+            "buildTarget": "rock-paper-scissors:build"
           }
         },
         "test": {

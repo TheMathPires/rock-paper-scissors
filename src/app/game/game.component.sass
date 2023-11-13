@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@700&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600&700&display=swap')
     
 :host
     padding: 2rem 1rem
@@ -41,7 +41,7 @@
             border-right: .9375rem solid rgba(0, 0, 0, .4)
             border-bottom: .9375rem solid rgba(0, 0, 0, .4)
 
-    .choose-screen
+    .choose-screen, .result-screen
         display: flex
         justify-content: center
         gap: 11rem
@@ -71,5 +71,34 @@
                 text-align: center
                 margin-bottom: 3.94rem
 
+    .result-screen
+        gap: 3rem
 
+        .result-status
+            display: flex
+            flex-direction: column
+            align-items: center
+            justify-content: center
 
+            h1
+                color: #FFF
+                font-family: 'Barlow Semi Condensed', sans-serif
+                font-size: 3.5rem
+                font-weight: 700
+                text-transform: uppercase
+                text-shadow: 0 .1875rem .1875rem rgba(0, 0, 0, 0.20)
+            
+            button
+                color: #3B4262
+                font-family: 'Barlow Semi Condensed', sans-serif
+                font-size: 1rem
+                font-weight: 600
+                letter-spacing: 0.15625rem
+                text-transform: uppercase
+                padding: 0.84rem 3.2rem
+                border-radius: 0.5rem
+                border: none
+
+                &:hover
+                    cursor: pointer
+                    color: #DB2E4D
