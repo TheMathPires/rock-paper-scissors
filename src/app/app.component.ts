@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { GameService } from './services/game.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'rock-paper-scissors';
+
+  constructor(private readonly gameService: GameService) {}
+
+  get score(): number {
+    return this.gameService.gameScore;
+  }
 }

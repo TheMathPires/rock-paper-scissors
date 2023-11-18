@@ -55,16 +55,23 @@ export class GameComponent implements OnInit {
 	}
 
 	restartGame(): void {
+		this._opponentSymbol = undefined;
 		this._gamePhase = 0;
 	}
 
-	private setOponentSymbol(oponentSymbol: GameSymbol): void {
-		const symbols = (["rock", "paper", "scissors"] as GameSymbol[]);
-		
+	private setOponentSymbol(oponentSymbol: GameSymbol): void {		
 		setTimeout(() => {
-			this._opponentSymbol = symbols.find((s) => s != oponentSymbol);
+			this._opponentSymbol = this.getOponentSymbol();
 			this.checkGameResult();
 		}, 2000);
+	}
+
+	private getOponentSymbol(): GameSymbol | undefined {
+		const symbols = (["rock", "paper", "scissors"] as GameSymbol[]);
+		const filteredSymbols = symbols.filter((s) => s !== this._choosedSymbol);
+		const oponentSymbol = filteredSymbols[Math.floor(Math.random() * filteredSymbols.length)];
+
+		return oponentSymbol;
 	}
 
 	private checkGameResult(): void {
@@ -74,9 +81,11 @@ export class GameComponent implements OnInit {
 		if (oponentSymbol?.beats === choosedSymbol?.symbol) {
 			this._opponentWin = true;
 			this._result = 'lose';
+			this.gameService.gameScore--;
 		} else {
 			this._opponentWin = false;
 			this._result = 'win';
+			this.gameService.gameScore++;
 		}
 
 		this._gamePhase = 2;
