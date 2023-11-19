@@ -8,9 +8,9 @@
             <div class="oponent-choise">
                 <span>The house picked</span>
                 <div class="oponent-space">
-                    <ng-container *ngIf="opponentSymbol">
+                    @if (opponentSymbol) {
                         <app-button [symbol]="opponentSymbol"></app-button>
-                    </ng-container>
+                    }
                 </div>
             </div>
         </div>
@@ -28,9 +28,9 @@
             <div class="oponent-choise">
                 <span>The house picked</span>
                 <div class="oponent-space">
-                    <ng-container *ngIf="opponentSymbol">
+                    @if (opponentSymbol) {
                         <app-button [symbol]="opponentSymbol"></app-button>
-                    </ng-container>
+                    }
                 </div>
             </div>
         </div>

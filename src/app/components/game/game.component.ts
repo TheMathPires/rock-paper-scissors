@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { GameService } from '../services/game.service';
-import { GameSymbol } from '../model/game-symbol.type';
-import { GameScore } from '../model/game-score.interface';
+import { GameService } from '../../services/game.service';
+import { GameSymbol } from '../../model/game-symbol.type';
+import { GameScore } from '../../model/game-score.interface';
 
 const GAME_SCORE: GameScore[] = [
 	{ symbol: "paper", beats: "rock" },
@@ -50,7 +50,7 @@ export class GameComponent implements OnInit {
 		this.gameService.onChosingAction.subscribe((symbol: GameSymbol) => {
 			this._choosedSymbol = symbol;
 			this._gamePhase = 1;
-			this.setOponentSymbol(symbol);
+			this.setOponentSymbol();
 		});
 	}
 
@@ -59,7 +59,7 @@ export class GameComponent implements OnInit {
 		this._gamePhase = 0;
 	}
 
-	private setOponentSymbol(oponentSymbol: GameSymbol): void {		
+	private setOponentSymbol(): void {		
 		setTimeout(() => {
 			this._opponentSymbol = this.getOponentSymbol();
 			this.checkGameResult();

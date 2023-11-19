@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { ScoreComponent } from './score/score.component';
-import { ButtonComponent } from './button/button.component';
-import { GameComponent } from './game/game.component';
-import { RulesComponent } from './rules/rules.component';
 import { GameService } from './services/game.service';
+import { ButtonComponent } from './components/button/button.component';
+import { GameComponent } from './components/game/game.component';
+import { RulesComponent } from './components/rules/rules.component';
+import { ScoreComponent } from './components/score/score.component';
 
 @NgModule({
   declarations: [

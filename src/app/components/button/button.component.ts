@@ -1,6 +1,6 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
-import { GameSymbol } from '../model/game-symbol.type';
-import { GameService } from '../services/game.service';
+import { GameSymbol } from '../../model/game-symbol.type';
+import { GameService } from '../../services/game.service';
 
 @Component({
   selector: 'app-button',
