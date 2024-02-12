@@ -23,6 +23,10 @@
             flex-basis: 100%
             margin-top: 1.5rem
 
+        @media screen and (max-width: 26.5625rem)
+            app-button
+                width: 50%
+
     .connector
         position: absolute
         top: 6.25rem
@@ -41,13 +45,23 @@
             border-right: .9375rem solid rgba(0, 0, 0, .4)
             border-bottom: .9375rem solid rgba(0, 0, 0, .4)
 
+        @media screen and (max-width: 26.5625rem)
+            width: 17.4375rem
+
+            .arrow-down
+                top: -4.375rem
+                left: -1.9375rem
+                right: 0
+                width: 10.4375rem
+                height: 7.4375rem
+
     .choose-screen, .result-screen
         display: flex
         justify-content: center
         gap: 11rem
         margin-top: 4.5rem
 
-        .your-choise, .oponent-choise
+        .your-choice, .oponent-choice
             display: flex
             flex-direction: column
 
@@ -74,11 +88,21 @@
     .result-screen
         gap: 3rem
 
+        @media screen and (max-width: 42.1875rem)
+            gap: 0
+            flex-wrap: wrap
+
+            .your-choice, .oponent-choice
+                align-items: center
+
         .result-status
             display: flex
             flex-direction: column
             align-items: center
             justify-content: center
+
+            @media screen and (max-width: 42.1875rem)
+                order: 3
 
             h1
                 color: #FFF

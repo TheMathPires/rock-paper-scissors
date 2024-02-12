@@ -7,6 +7,7 @@ import { ButtonComponent } from './components/button/button.component';
 import { GameComponent } from './components/game/game.component';
 import { RulesComponent } from './components/rules/rules.component';
 import { ScoreComponent } from './components/score/score.component';
+import { AudioService } from './services/audio.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ScoreComponent } from './components/score/score.component';
     BrowserModule
   ],
   providers: [
-    GameService
+    GameService,
+    AudioService
   ],
   bootstrap: [AppComponent]
 })

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GameService } from '../../services/game.service';
 import { GameSymbol } from '../../model/game-symbol.type';
 import { GameScore } from '../../model/game-score.interface';
+import { AudioService } from 'src/app/services/audio.service';
 
 const GAME_SCORE: GameScore[] = [
 	{ symbol: "paper", beats: "rock" },
@@ -22,7 +23,10 @@ export class GameComponent implements OnInit {
 	private _opponentWin!: boolean;
 	private _result!: 'win' | 'lose';
 
-	constructor(private gameService: GameService) {
+	constructor(
+		private gameService: GameService,
+		private audioService: AudioService
+	) {
 		this._gamePhase = 0;
 	}
 
@@ -79,10 +83,12 @@ export class GameComponent implements OnInit {
 		const choosedSymbol = this.getSymbolFromPlayer(this._choosedSymbol);
 
 		if (oponentSymbol?.beats === choosedSymbol?.symbol) {
+			this.audioService.playSound('./assets/sounds/lose-effect.wav');
 			this._opponentWin = true;
 			this._result = 'lose';
 			this.gameService.gameScore--;
 		} else {
+			this.audioService.playSound('./assets/sounds/win-effect.mp3');
 			this._opponentWin = false;
 			this._result = 'win';
 			this.gameService.gameScore++;

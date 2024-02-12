@@ -1,15 +1,17 @@
 @switch (gamePhase) {
     @case (1) {
         <div class="choose-screen">
-            <div class="your-choise">
+            <div class="your-choice">
                 <span>You picked</span>
                 <app-button [symbol]="choosedSymbol"></app-button>
             </div>
-            <div class="oponent-choise">
+            <div class="oponent-choice">
                 <span>The house picked</span>
                 <div class="oponent-space">
                     @if (opponentSymbol) {
                         <app-button [symbol]="opponentSymbol"></app-button>
+                    } @else {
+                        <span>loading...</span>
                     }
                 </div>
             </div>
@@ -17,7 +19,7 @@
     }
     @case (2) {
         <div class="result-screen">
-            <div class="your-choise">
+            <div class="your-choice">
                 <span>You picked</span>
                 <app-button [symbol]="choosedSymbol"></app-button>
             </div>
@@ -25,7 +27,7 @@
                 <h1>You {{ result }}</h1>
                 <button type="button" (click)="restartGame()">Play again</button>
             </div>
-            <div class="oponent-choise">
+            <div class="oponent-choice">
                 <span>The house picked</span>
                 <div class="oponent-space">
                     @if (opponentSymbol) {
